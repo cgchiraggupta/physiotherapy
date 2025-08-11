@@ -1,8 +1,6 @@
 'use server'
 
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '../prisma'
 
 // Helper function to get specialization ID by name
 async function getSpecializationIdByName(specializationName) {

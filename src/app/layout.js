@@ -20,7 +20,13 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   // Get current user data for header
-  const user = await getCurrentUser();
+  let user = null;
+  try {
+    user = await getCurrentUser();
+  } catch (error) {
+    console.error('Error getting current user in layout:', error);
+    // Continue without user data if there's an error
+  }
 
   return (
     <html lang="en">

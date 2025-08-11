@@ -4,7 +4,9 @@ import { Prisma } from '@prisma/client'
 import Stripe from 'stripe'
 import { createBooking } from './booking'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2024-12-18.acacia',
+})
   export async function createBookingAndPayment({
   patientId,
   physiotherapistId,

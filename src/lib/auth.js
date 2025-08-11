@@ -1,13 +1,12 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import jwt from "jsonwebtoken";
 import { z } from "zod";
+import { prisma } from "./prisma";
 
-const prisma = new PrismaClient();
 console.log('PRISMA DEBUG: DATABASE_URL =', process.env.DATABASE_URL);
 
 export async function getDecodedAuth() {
